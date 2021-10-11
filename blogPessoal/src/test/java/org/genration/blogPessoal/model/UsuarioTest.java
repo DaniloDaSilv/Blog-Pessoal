@@ -23,12 +23,13 @@ public class UsuarioTest {
 
 	@Autowired
 	private ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-	
+
 	Validator validator = factory.getValidator();
 
 	@BeforeEach
 	public void start() {
-		//LocalDate data = LocalDate.parse("2000-07-22", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		// LocalDate data = LocalDate.parse("2000-07-22",
+		// DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		usuario = new Usuario(0L, "João da Silva", "joao@email.com.br", "13465278");
 	}
 
@@ -38,13 +39,13 @@ public class UsuarioTest {
 		Set<ConstraintViolation<Usuario>> violacao = validator.validate(usuario);
 		System.out.println(violacao.toString());
 		assertTrue(violacao.isEmpty());
-	}	
+	}
 
 	@Test
 	@DisplayName("✖ Não Valida Atributos Nulos")
 	void testNaoValidaAtributos() {
-	Set<ConstraintViolation<Usuario>>  violacao = validator.validate(usuarioNulo);
-	System.out.println(violacao.toString());
-	assertTrue(violacao.isEmpty());
+		Set<ConstraintViolation<Usuario>> violacao = validator.validate(usuarioNulo);
+		System.out.println(violacao.toString());
+		assertTrue(violacao.isEmpty());
 	}
 }
