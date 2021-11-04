@@ -40,6 +40,10 @@ public class Usuario {
 	@NotNull(message = "O nome é obrigatorio")
 	@Size(min = 8, message = "A senha deve ter no minimo 8 numeros")
 	private String senha;
+	
+	private String foto;
+	
+	private String tipo;
 
 	@Column(name = "dt_nascimento")
 	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -92,13 +96,30 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
 
-	public LocalDate getDataNascimento() {
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public LocalDate getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNasc = dataNascimento;
+	public void setDataNasc(LocalDate dataNasc) {
+		this.dataNasc = dataNasc;
 	}
 
 	public List<Postagem> getPostagem() {
